@@ -73,13 +73,13 @@
     ##  Скриншоты
 
     ### Лента историй
-    ![Лента историй](screenshots/feed.png)
+    ![Лента историй](screenshots/feed1.png)
 
     ### Модерация историй
-    ![Модерация историй](screenshots/admin.png)
+    ![Модерация историй](screenshots/admin1.png)
 
     ### Все истории и поиск
-    ![Все истории и поиск](screenshots/stories.png)
+    ![Все истории и поиск](screenshots/stories1.png)
 
     ### Мои истории
-    ![Мои истории](screenshots/profile.png)
+    ![Мои истории](screenshots/profile1.png)
