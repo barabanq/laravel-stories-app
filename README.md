@@ -1,71 +1,85 @@
- Laravel Stories App
+    Laravel Stories App
 
-## Описание
-Приложение для публикации историй с лайками, комментариями, подписками и уведомлениями.
+    ## Описание
+    Приложение для публикации историй с лайками, комментариями, подписками и уведомлениями.
 
----
+    ---
 
-## 🚀 Функционал
+    ## 🚀 Функционал
 
-- Аутентификация (регистрация / логин)
-- CRUD историй
-- Теги
-- Лайки (AJAX)
-- Комментарии и ответы (nested)
-- Подписки на пользователей
-- Персонализированная лента (feed)
-- Уведомления (Laravel Notifications)
-- Админ-панель (модерация историй)
+    - Аутентификация (регистрация / логин)
+    - CRUD историй
+    - Теги
+    - Лайки (AJAX)
+    - Комментарии и ответы (nested)
+    - Подписки на пользователей
+    - Персонализированная лента (feed)
+    - Уведомления (Laravel Notifications)
+    - Админ-панель (модерация историй)
 
----
+    ---
 
-## 🛠 Стек
+    ## 🛠 Стек
 
-- Laravel
-- MySQL
-- Blade
-- Tailwind CSS
-- JavaScript (Fetch API / AJAX)
+    - Laravel
+    - MySQL
+    - Blade
+    - Tailwind CSS
+    - JavaScript (Fetch API / AJAX)
+    - Docker + Docker Compose
+    - Nginx
 
----
+    ---
 
-## ⚙️ Установка
+    ## ⚙️ Установка
 
-```bash
-git clone https://github.com/barabanq/laravel-stories-app.git
-cd laravel-stories-app
+    ```bash
+    git clone https://github.com/barabanq/laravel-stories-app.git
+    cd laravel-stories-app
 
-composer install
-npm install
+    # Собираем и запускаем контейнеры
+    docker-compose up --build -d
 
-cp .env.example .env
-php artisan key:generate
+    # Зайти в контейнер PHP
+    docker-compose exec app bash
 
-# настрой базу данных в .env
-php artisan migrate
+    # Скопировать .env
+    cp .env.example .env
 
-npm run dev
-php artisan serve 
+    # Сгенерировать ключ приложения
+    php artisan key:generate
 
-```
+    # Настроить базу данных в .env (DB_HOST=db, DB_DATABASE=laravel, DB_USERNAME=root, DB_PASSWORD=secret)
 
-## 👑 Админ
+    # Применить миграции
+    php artisan migrate
 
-php artisan tinker
-$user = App\Models\User::find(1);
-$user->is_admin = true;
-$user->save();
+    # Собрать фронтенд через Vite
+    npm install
+    npm run build
 
-##  Скриншоты
+    # Открыть проект в браузере
+    http://localhost:8080
+    ```
+    
 
-### Лента историй
-![Лента историй](screenshots/feed.png)
+    ## 👑 Админ
 
-### Модерация историй
-![Модерация историй](screenshots/admin.png)
+    docker-compose exec app php artisan tinker
+    $user = App\Models\User::find(1);
+    $user->is_admin = true;
+    $user->save();
 
-### Все истории и поиск
-![Все истории и поиск](screenshots/stories.png)
+    ##  Скриншоты
 
-### Мои истории
-![Мои истории](screenshots/profile.png)
+    ### Лента историй
+    ![Лента историй](screenshots/feed.png)
+
+    ### Модерация историй
+    ![Модерация историй](screenshots/admin.png)
+
+    ### Все истории и поиск
+    ![Все истории и поиск](screenshots/stories.png)
+
+    ### Мои истории
+    ![Мои истории](screenshots/profile.png)
